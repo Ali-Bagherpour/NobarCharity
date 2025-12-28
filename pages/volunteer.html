@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>همکاری افتخاری | نذر تخصص</title>
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script>
+            function initTailwind() {
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            fontFamily: {
+                                sans: ['Vazirmatn', 'sans-serif'],
+                            },
+                            colors: {
+                                'brand-dark': '#1c2b36',
+                                'brand-cyan': '#4bc3d0',
+                                'brand-cyan-dark': '#3aaebb',
+                                'brand-bg': '#f3f4f6',
+                                primary: '#2ca4a4',
+                                secondary: '#1f2937',
+                                darkblue: '#132c45',
+                                lightbg: '#f9fafb',
+                            },
+                            boxShadow: {
+                                'card': '0 2px 15px rgba(0,0,0,0.05)',
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+        <script src="https://cdn.tailwindcss.com" onload="initTailwind()"></script>
+        <style>
+            body { font-family: 'Vazirmatn', sans-serif; }
+            .skill-check:checked + div {
+                background-color: #f0fdf4;
+                border-color: #22c55e;
+                color: #15803d;
+                box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.1);
+            }
+        </style>
+    </head>
+
+    <body class="bg-gray-50 text-gray-800">
+
+        <script>
+            const API_BASE = 'https://charity-backend.alibagerpour2.workers.dev'; 
+        </script>
+
+        <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-darkblue text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 z-50 text-sm font-bold flex items-center gap-2">
+            <span>کپی شد!</span>
+            <i class="fas fa-check-circle text-green-400"></i>
+        </div>
+        <div id="header-placeholder"></div>
+
+        <main class="max-w-5xl mx-auto px-4 py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black text-gray-800 mb-4">مهربانی فقط با پول نیست!</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">زمان، تخصص و انرژی شما می‌تواند زندگی یک نفر را تغییر دهد.</p>
+            </div>
+            <form onsubmit="submitVolunteer(event)" class="bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-gray-100">
+                <h3 class="font-bold text-lg mb-6 flex items-center gap-2">
+                    <span class="bg-teal-100 text-teal-600 w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
+                    توانایی‌های من:
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                    <label class="cursor-pointer group">
+                        <input type="checkbox" name="skills" value="راننده" class="hidden skill-check">
+                        <div class="border-2 border-gray-100 rounded-2xl p-4 text-center transition duration-200 group-hover:border-gray-300 h-full flex flex-col justify-center">
+                            <div class="text-3xl mb-2">🚗</div>
+                            <span class="font-bold text-sm">وسیله نقلیه دارم</span>
+                            <span class="text-[10px] text-gray-400 mt-1">برای پخش غذا/بسته</span>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer group">
+                        <input type="checkbox" name="skills" value="پزشک" class="hidden skill-check">
+                        <div class="border-2 border-gray-100 rounded-2xl p-4 text-center transition duration-200 group-hover:border-gray-300 h-full flex flex-col justify-center">
+                            <div class="text-3xl mb-2">🩺</div>
+                            <span class="font-bold text-sm">پزشک / پرستار</span>
+                            <span class="text-[10px] text-gray-400 mt-1">ویزیت رایگان</span>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer group">
+                        <input type="checkbox" name="skills" value="تدریس" class="hidden skill-check">
+                        <div class="border-2 border-gray-100 rounded-2xl p-4 text-center transition duration-200 group-hover:border-gray-300 h-full flex flex-col justify-center">
+                            <div class="text-3xl mb-2">📚</div>
+                            <span class="font-bold text-sm">تدریس / آموزش</span>
+                            <span class="text-[10px] text-gray-400 mt-1">برای کودکان بازمانده از تحصیل</span>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer group">
+                        <input type="checkbox" name="skills" value="عکاسی" class="hidden skill-check">
+                        <div class="border-2 border-gray-100 rounded-2xl p-4 text-center transition duration-200 group-hover:border-gray-300 h-full flex flex-col justify-center">
+                            <div class="text-3xl mb-2">📷</div>
+                            <span class="font-bold text-sm">عکاسی / گرافیک</span>
+                            <span class="text-[10px] text-gray-400 mt-1">تولید محتوا برای خیریه</span>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer group">
+                        <input type="checkbox" name="skills" value="آشپزی" class="hidden skill-check">
+                        <div class="border-2 border-gray-100 rounded-2xl p-4 text-center transition duration-200 group-hover:border-gray-300 h-full flex flex-col justify-center">
+                            <div class="text-3xl mb-2">🍲</div>
+                            <span class="font-bold text-sm">آشپزی</span>
+                            <span class="text-[10px] text-gray-400 mt-1">تهیه غذای گرم</span>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer group">
+                        <input type="checkbox" name="skills" value="سایر مهارت‌ها" class="hidden skill-check">
+                        <div class="border-2 border-gray-100 rounded-2xl p-4 text-center transition duration-200 group-hover:border-gray-300 h-full flex flex-col justify-center">
+                            <div class="text-3xl mb-2">✨</div>
+                            <span class="font-bold text-sm">سایر مهارت‌ها</span>
+                            <span class="text-[10px] text-gray-400 mt-1">هر کمکی ارزشمند است</span>
+                        </div>
+                    </label>
+                </div>
+                <h3 class="font-bold text-lg mb-6 flex items-center gap-2">
+                    <span class="bg-teal-100 text-teal-600 w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
+                    اطلاعات تماس:
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <input type="text" id="v-name" placeholder="نام و نام خانوادگی" class="w-full bg-gray-50 border-none p-4 rounded-xl focus:ring-2 focus:ring-teal-200 transition" required>
+                    <input type="text" id="v-phone" placeholder="شماره موبایل" class="w-full bg-gray-50 border-none p-4 rounded-xl focus:ring-2 focus:ring-teal-200 transition text-left" dir="ltr" required>
+                    <input type="text" id="v-avail" placeholder="روزهای آزاد (مثلا: پنجشنبه‌ها)" class="w-full bg-gray-50 border-none p-4 rounded-xl focus:ring-2 focus:ring-teal-200 transition md:col-span-2">
+                </div>
+                <button type="submit" id="btn-sub" class="w-full bg-teal-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-teal-700 transition">ثبت اعلام آمادگی</button>
+            </form>
+        </main>
+
+        <div id="footer-placeholder"></div>
+        <script src="header.js"></script>
+        <script src="footer.js"></script>
+
+        <script>
+            async function submitVolunteer(e) {
+                e.preventDefault();
+                const btn = document.getElementById('btn-sub');
+                const name = document.getElementById('v-name').value;
+                const phone = document.getElementById('v-phone').value;
+                const availability = document.getElementById('v-avail').value;
+                const skills = [];
+                document.querySelectorAll('input[name="skills"]:checked').forEach(cb => skills.push(cb.value));
+                if(skills.length === 0) return alert('لطفاً حداقل یک مهارت را انتخاب کنید');
+                btn.disabled = true;
+                btn.innerText = 'در حال ارسال...';
+                try {
+                    const res = await fetch(`${API_BASE}/api/volunteer`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, phone, skills, availability })
+                    });
+                    if (res.ok) {
+                        alert('درخواست شما با موفقیت ثبت شد. همکاران ما با شما تماس خواهند گرفت.');
+                        window.location.href = '../index.html';
+                    } else {
+                        alert('خطا در ثبت درخواست');
+                    }
+                } catch (error) {
+                    alert('خطای شبکه');
+                } finally {
+                    btn.disabled = false;
+                    btn.innerText = 'ثبت اعلام آمادگی';
+                }
+            }
+            
+        </script>
+    </body>
+</html>

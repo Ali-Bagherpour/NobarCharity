@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>موسسه خیریه نوبر | Nobar Charity</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script>
+            function initTailwind() {
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            fontFamily: {
+                                sans: ['Vazirmatn', 'sans-serif'],
+                            },
+                            colors: {
+                                'brand-dark': '#1c2b36',
+                                'brand-cyan': '#4bc3d0',
+                                'brand-cyan-dark': '#3aaebb',
+                                'brand-bg': '#f3f4f6',
+                                primary: '#2ca4a4',
+                                secondary: '#1f2937',
+                                darkblue: '#132c45',
+                                lightbg: '#f9fafb',
+                            },
+                            boxShadow: {
+                                'card': '0 4px 20px rgba(0,0,0,0.05)',
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+        <script src="https://cdn.tailwindcss.com" onload="initTailwind()"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="text-gray-700">
+        <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-darkblue text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 z-50 text-sm font-bold flex items-center gap-2">
+            <span>کپی شد!</span>
+            <i class="fas fa-check-circle text-green-400"></i>
+        </div>
+        <div id="mobile-menu-overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/50 z-40 hidden transition-opacity backdrop-blur-sm"></div>
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden shadow-2xl flex flex-col">
+            <div class="p-4 flex justify-between items-center border-b bg-gray-50">
+                <a href="index.html">
+                    <div class="flex items-center gap-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" alt="Logo" class="h-8 w-8">
+                        <span class="font-bold text-brand-dark">منوی اصلی</span>
+                    </div>
+                </a>
+                <button onclick="toggleMenu()" class="text-gray-500 hover:text-red-500 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-200 transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <nav class="flex-1 overflow-y-auto p-4 flex flex-col gap-2">
+                <a href="index.html" class="flex items-center gap-3 p-3 text-gray-700 hover:bg-blue-50 hover:text-brand-cyan rounded-lg transition">
+                    <i class="fas fa-home w-5 text-center text-gray-400"></i> خانه
+                </a>
+                <a href="pages/about-us.html" class="flex items-center gap-3 p-3 text-gray-700 hover:bg-blue-50 hover:text-brand-cyan rounded-lg transition">
+                    <i class="fas fa-info-circle w-5 text-center text-gray-400"></i> معرفی موسسه
+                </a>
+                <a href="pages/contact.html" class="flex items-center gap-3 p-3 text-gray-700 hover:bg-blue-50 hover:text-brand-cyan rounded-lg transition">
+                    <i class="fas fa-handshake w-5 text-center text-gray-400"></i> تماس با ما
+                </a>
+                <a href="pages/news_events.html" class="flex items-center gap-3 p-3 text-gray-700 hover:bg-blue-50 hover:text-primary rounded-lg transition font-medium">
+                    <i class="fas fa-newspaper w-5 text-center text-gray-400"></i> اخبار
+                </a>
+                <a href="pages/gallery.html" class="flex items-center gap-3 p-3 text-gray-700 hover:bg-blue-50 hover:text-primary rounded-lg transition font-medium">
+                    <i class="fas fa-images w-5 text-center text-gray-400"></i> گالری تصاویر
+                </a>
+            </nav>
+            <div class="p-4 border-t bg-gray-50">
+                <a href="https://admin-nobar.alibagherpour-dev.ir/index.html" class="bg-brand-dark text-white text-center py-3 rounded-lg hover:bg-opacity-90 transition block w-full shadow-md">
+                    <i class="fas fa-sign-in-alt ml-2"></i> ورود / ثبت نام
+                </a>
+            </div>
+        </div>
+
+        <header class="bg-white shadow-sm sticky top-0 z-30 w-full">
+            <div class="container mx-auto px-4 py-3 h-20 flex justify-between items-center">
+                <div class="flex items-center gap-8 md:gap-12">
+
+                    <a href="index.html" class="flex items-center gap-2 group shrink-0">
+                        <div class="text-2xl font-black text-brand-dark flex flex-col items-center leading-none">
+                            <span>NOBAR</span>
+                            <span class="text-xs font-normal group-hover:text-brand-cyan transition">CHARITY</span>
+                        </div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" alt="Logo" class="h-10 w-10 opacity-90 group-hover:scale-110 transition">
+                    </a>
+                    <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-gray-600">
+                        <a href="index.html" class="hover:text-brand-cyan transition relative py-2 group">
+                            خانه
+                            <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-brand-cyan transition-all group-hover:w-full"></span>
+                        </a>
+                        <a href="pages/about-us.html" class="hover:text-brand-cyan transition relative py-2 group">
+                            معرفی موسسه
+                            <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-brand-cyan transition-all group-hover:w-full"></span>
+                        </a>
+                        <a href="pages/news_events.html" class="hover:text-brand-cyan transition relative py-2 group">
+                            اخبار
+                            <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-brand-cyan transition-all group-hover:w-full"></span>
+                        </a>
+                        <a href="pages/gallery.html" class="hover:text-brand-cyan transition relative py-2 group">
+                            گالری تصاویر
+                            <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-brand-cyan transition-all group-hover:w-full"></span>
+                        </a>
+                        <a href="pages/contact.html" class="hover:text-brand-cyan transition relative py-2 group">
+                            تماس با ما
+                            <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-brand-cyan transition-all group-hover:w-full"></span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://admin-nobar.alibagherpour-dev.ir/index.html" class="hidden lg:inline-flex bg-brand-dark text-white px-5 py-2 rounded-lg hover:bg-brand-cyan-dark transition shadow-md font-bold text-sm items-center gap-2">
+                        <i class="fas fa-user"></i>
+                        <span>ورود / ثبت نام</span>
+                    </a>
+                    <button class="lg:hidden text-2xl text-gray-600 w-10 h-10 flex items-center justify-center rounded hover:bg-gray-100 transition" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section class="relative w-full overflow-hidden">
+            <div class="w-full h-[300px] md:h-[450px] bg-orange-100 relative">
+                <img src="images/baner.jpg" alt="Hero Banner" class="w-full h-full object-cover opacity-90">
+                <div class="absolute inset-0 bg-gradient-to-r from-orange-500/80 to-transparent flex items-center">
+                    <div class="container mx-auto px-4 text-white">
+                        <div class="max-w-xl">
+                            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-md">کمپین اردو تابستانه کودکان یتیم</h1>
+                            <h2 class="text-xl md:text-3xl font-bold mb-6 drop-shadow-md">تابستانی پر از لبخند</h2>
+                            <div class="bg-yellow-500 text-darkblue font-bold py-2 px-4 rounded-full inline-block mb-4 shadow-lg">
+                                مبلغ پروژه: ۲۰۰,۰۰۰,۰۰۰ تومان
+                            </div>
+                            <br>
+                            <a href="#" class="bg-white text-orange-600 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition shadow-lg inline-block">
+                                کمک های خود را از طریق اپلیکیشن سکه واریز نمایید
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex justify-center -mt-5 relative z-10 mb-12">
+            <span class="bg-darkblue text-white px-8 py-2 rounded-lg font-bold shadow-lg">آخرین اخبار</span>
+        </div>
+
+        <section class="container mx-auto px-4 mb-20">
+            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full">
+                    <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="col-span-full text-center py-20">
+                            <div class="inline-block w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                            <p class="text-gray-400 mt-2 text-sm">در حال دریافت اخبار...</p>
+                        </div>
+                    </div>
+            </main>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-card text-center flex flex-col items-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 text-darkblue text-2xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">فروشگاه مهربانی</h3>
+                    <p class="text-xs text-gray-500 mb-4">خرید هدایای نمادین برای عزیزان</p>
+                    <a href="pages/Iconic-gift-shop.html" class="bg-primary text-white text-xs py-2 px-6 rounded-md hover:bg-opacity-90 w-full">پرداخت آنلاین</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-card text-center flex flex-col items-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 text-darkblue text-2xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">پرداخت آنلاین صدقه</h3>
+                    <p class="text-xs text-gray-500 mb-4">پرداخت آسان و سریع صدقه از طریق درگاه آنلاین</p>
+                    <a href="pages/sadage.html" class="bg-primary text-white text-xs py-2 px-6 rounded-md hover:bg-opacity-90 w-full">پرداخت آنلاین</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-card text-center flex flex-col items-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 text-darkblue text-2xl">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">تامین جهیزیه</h3>
+                    <p class="text-xs text-gray-500 mb-4">کمک به نوعروسان نیازمند جهت شروع زندگی</p>
+                    <a href="pages/dowry.html" class="bg-primary text-white text-xs py-2 px-6 rounded-md hover:bg-opacity-90 w-full">کمک کنید</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-card text-center flex flex-col items-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 text-darkblue text-2xl">
+                        <i class="fas fa-hands-holding-circle"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">روش های کمک</h3>
+                    <p class="text-xs text-gray-500 mb-4">آشنایی با روش های متنوع کمک به موسسه</p>
+                    <a href="pages/help.html" class="bg-primary text-white text-xs py-2 px-6 rounded-md hover:bg-opacity-90 w-full">مشاهده</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-card text-center flex flex-col items-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 text-darkblue text-2xl">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">همکاری افتخاری</h3>
+                    <p class="text-xs text-gray-500 mb-4">شما هم می توانید عضوی از خانواده نوبر باشید</p>
+                    <a href="pages/volunteer.html" class="bg-primary text-white text-xs py-2 px-6 rounded-md hover:bg-opacity-90 w-full">ثبت نام</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-card text-center flex flex-col items-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 text-darkblue text-2xl">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">ارتباط با ما</h3>
+                    <p class="text-xs text-gray-500 mb-4">راه های ارتباطی با ما</p>
+                    <a href="pages/contact.html" class="bg-primary text-white text-xs py-2 px-6 rounded-md hover:bg-opacity-90 w-full">تماس با ما</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-blue-50 py-16 relative overflow-hidden">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-2/3 order-2 md:order-1 text-right">
+                    <div class="inline-block bg-darkblue text-white px-4 py-1 rounded mb-4 text-sm">درباره موسسه خیریه نوبر</div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 leading-relaxed">
+                        موسسه خیریه نوبر از سال ۱۳۸۰ فعالیت خود را با هدف حمایت از کودکان بی سرپرست و خانواده های نیازمند آغاز نموده است.
+                    </h2>
+                    <p class="text-gray-600 mb-8 leading-loose text-justify">
+                        این موسسه با تکیه بر کمک های مردمی و خیرین نیک اندیش، در زمینه های مختلف درمانی، آموزشی، معیشتی و فرهنگی به مددجویان تحت پوشش خدمات ارائه می دهد. شفافیت مالی و حفظ کرامت انسانی مددجویان از اصول بنیادین این موسسه می باشد.
+                    </p>
+                    <a href="pages/about-us.html" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-opacity-90 shadow-md transition">مشاهده بیشتر</a>
+                </div>
+                <div class="md:w-1/3 order-1 md:order-2 flex justify-center">
+                    <div class="w-64 h-64 md:w-80 md:h-80 diamond-img-container border-4 border-white shadow-2xl">
+                        <img src="images/about-us-600x608.png" alt="About Building" class="w-full h-full object-cover diamond-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <div class="mb-12">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" alt="Logo" class="h-16 mx-auto mb-2 opacity-80">
+                    <h3 class="text-xl font-bold text-gray-800">جمعیت خیریه نوبر تبریز</h3>
+                    <div class="mt-8">
+                        <span class="bg-darkblue text-white px-6 py-2 rounded text-sm">سرفصل های کمک</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-lg transition">
+                        <div class="bg-darkblue p-3 rounded-full text-white w-12 h-12 flex items-center justify-center shrink-0">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <div class="text-right">
+                            <h4 class="font-bold text-gray-800">مباحث بیماران</h4>
+                            <p class="text-xs text-gray-500">کمک به هزینه های درمانی و دارویی</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-lg transition">
+                        <div class="bg-darkblue p-3 rounded-full text-white w-12 h-12 flex items-center justify-center shrink-0">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="text-right">
+                            <h4 class="font-bold text-gray-800">سرپرستی ایتام</h4>
+                            <p class="text-xs text-gray-500">حمایت از کودکان بی سرپرست</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-lg transition">
+                        <div class="bg-darkblue p-3 rounded-full text-white w-12 h-12 flex items-center justify-center shrink-0">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="text-right">
+                            <h4 class="font-bold text-gray-800">احداث واحدها</h4>
+                            <p class="text-xs text-gray-500">کمک به تامین مسکن و اجاره بها</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-lg transition">
+                        <div class="bg-darkblue p-3 rounded-full text-white w-12 h-12 flex items-center justify-center shrink-0">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="text-right">
+                            <h4 class="font-bold text-gray-800">امور فرهنگی</h4>
+                            <p class="text-xs text-gray-500">حمایت تحصیلی دانش آموزان</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-4 mb-16">
+            <div class="bg-gray-100 rounded-lg p-6 flex flex-col md:flex-row justify-between items-center shadow-inner border border-gray-200">
+                <div class="flex items-center gap-4 mb-4 md:mb-0">
+                    <div class="bg-darkblue text-white p-3 rounded-lg text-2xl">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800">اپلیکیشن نیکوکار</h3>
+                        <p class="text-sm text-gray-500">دانلود اپلیکیشن اندروید جهت پرداخت آسان کمک ها</p>
+                    </div>
+                </div>
+                <a href="#" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-opacity-90 flex items-center gap-2 text-sm shadow">
+                    <i class="fas fa-download"></i> دانلود مستقیم نسخه اندروید
+                </a>
+            </div>
+        </section>
+
+        <section class="bg-darkblue py-16 text-white torn-top mt-10">
+            <div class="container mx-auto px-4">
+                <h3 class="text-center text-xl font-bold mb-12">آمار و تعداد پرونده ها</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white text-darkblue p-6 text-center rounded shadow-lg transform hover:scale-105 transition">
+                        <div class="text-3xl font-black mb-2" dir="ltr">+۴۱</div>
+                        <div class="w-10 h-0.5 bg-gray-300 mx-auto mb-2"></div>
+                        <div class="text-sm font-bold">خانواده های تحت پوشش</div>
+                    </div>
+                    <div class="bg-white text-darkblue p-6 text-center rounded shadow-lg transform hover:scale-105 transition">
+                        <div class="text-3xl font-black mb-2" dir="ltr">+۹۵</div>
+                        <div class="w-10 h-0.5 bg-gray-300 mx-auto mb-2"></div>
+                        <div class="text-sm font-bold">حوزه غذا (رایگان شده)</div>
+                    </div>
+                    <div class="bg-white text-darkblue p-6 text-center rounded shadow-lg transform hover:scale-105 transition">
+                        <div class="text-3xl font-black mb-2" dir="ltr">+۳۷</div>
+                        <div class="w-10 h-0.5 bg-gray-300 mx-auto mb-2"></div>
+                        <div class="text-sm font-bold">طرح اشتغال</div>
+                    </div>
+                    <div class="bg-white text-darkblue p-6 text-center rounded shadow-lg transform hover:scale-105 transition">
+                        <div class="text-3xl font-black mb-2" dir="ltr">+۶۹۵</div>
+                        <div class="w-10 h-0.5 bg-gray-300 mx-auto mb-2"></div>
+                        <div class="text-sm font-bold">مقاله</div>
+                    </div>
+                    <div class="bg-white text-darkblue p-6 text-center rounded shadow-lg transform hover:scale-105 transition">
+                        <div class="text-3xl font-black mb-2" dir="ltr">+۲۰</div>
+                        <div class="w-10 h-0.5 bg-gray-300 mx-auto mb-2"></div>
+                        <div class="text-sm font-bold">دانشجویان فعال</div>
+                    </div>
+                    <div class="bg-white text-darkblue p-6 text-center rounded shadow-lg transform hover:scale-105 transition">
+                        <div class="text-3xl font-black mb-2" dir="ltr">+۲۳۹</div>
+                        <div class="w-10 h-0.5 bg-gray-300 mx-auto mb-2"></div>
+                        <div class="text-sm font-bold">مشارکت و سرمایه گذاری</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-[#0f233a] text-gray-400 py-12 text-sm border-t border-white/10">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
+                    <div class="flex flex-col">
+                        <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-brand-cyan rounded-full"></span>
+                            درباره نوبر
+                        </h4>
+                        <div class="bg-white/5 p-6 rounded-2xl backdrop-blur-sm h-full">
+                            <p class="text-gray-300 leading-7 mb-4 text-justify border-b-2 border-teal-700 pb-4">
+                                جمعیت خیریه نوبر تبریز، در سال ۱۳۲۶ شمسی با هدف انجام امور خیر تأسیس گردید و اکنون نمادی از اعتماد و نوع‌دوستی است.
+                            </p>
+                            <div class="flex items-start border-b-2 border-teal-700 pb-4">
+                                <div class="w-10 h-10 text-teal-500 rounded-full flex justify-center text-lg shrink-0">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white-100">تلفن‌های تماس</h3>
+                                    <div class="text-white-200 text-sm mt-1 mr-2 space-y-1" dir="ltr">
+                                        <p>041-35248653</p>
+                                        <p>041-35237946</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start border-b-2 border-teal-700 pb-4">
+                                <div class="w-10 h-10 text-teal-500 rounded-full flex items-center justify-center text-lg shrink-0">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="mt-3">
+                                    <h3 class="font-bold text-white-200">پست الکترونیک</h3>
+                                    <p class="text-white-200 text-sm mt-1 font-mono mr-2">info@nobar.org</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 mt-auto justify-center pt-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-cyan hover:text-white flex items-center justify-center transition"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-cyan hover:text-white flex items-center justify-center transition"><i class="fab fa-telegram-plane"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-cyan hover:text-white flex items-center justify-center transition"><i class="fas fa-phone"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-brand-cyan rounded-full"></span>
+                            شماره‌های حساب
+                        </h4>
+                        <ul class="space-y-4">
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-cyan/50 transition cursor-copy group" onclick="navigator.clipboard.writeText('IR550150000000009800150003')">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold text-xs text-brand-cyan">بانک سپه</span>
+                                    <i class="fas fa-copy text-gray-500 group-hover:text-white transition text-xs"></i>
+                                </div>
+                                <span class="block text-gray-300 dir-ltr text-left font-mono tracking-wider text-sm" onclick="copyText(this.innerText, this)">IR 55 0150 0000 0000 9800 1500 03</span>
+                            </li>
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-cyan/50 transition cursor-copy group" onclick="navigator.clipboard.writeText('IR800170000000109180918004')">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold text-xs text-brand-cyan">بانک ملی</span>
+                                    <i class="fas fa-copy text-gray-500 group-hover:text-white transition text-xs"></i>
+                                </div>
+                                <span class="block text-gray-300 dir-ltr text-left font-mono tracking-wider text-sm" onclick="copyText(this.innerText, this)">IR 80 0170 0000 0010 9180 9180 04</span>
+                            </li>
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-cyan/50 transition cursor-copy group" onclick="navigator.clipboard.writeText('IR550190000000103385531006')">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold text-xs text-brand-cyan">بانک صادرات</span>
+                                    <i class="fas fa-copy text-gray-500 group-hover:text-white transition text-xs"></i>
+                                </div>
+                                <span class="block text-gray-300 dir-ltr text-left font-mono tracking-wider text-sm" onclick="copyText(this.innerText, this)">IR 55 0190 0000 0010 3385 5310 06</span>
+                            </li>
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-cyan/50 transition cursor-copy group" onclick="navigator.clipboard.writeText('IR180120000000001703000836')">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold text-xs text-brand-cyan">بانک ملت</span>
+                                    <i class="fas fa-copy text-gray-500 group-hover:text-white transition text-xs"></i>
+                                </div>
+                                <span class="block text-gray-300 dir-ltr text-left font-mono tracking-wider text-sm" onclick="copyText(this.innerText, this)">IR 18 0120 0000 0000 1703 0008 36</span>
+                            </li>
+                            <li class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-cyan/50 transition cursor-copy group" onclick="navigator.clipboard.writeText('IR750180000000000501057770')">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold text-xs text-brand-cyan">بانک تجارت</span>
+                                    <i class="fas fa-copy text-gray-500 group-hover:text-white transition text-xs"></i>
+                                </div>
+                                <span class="block text-gray-300 dir-ltr text-left font-mono tracking-wider text-sm" onclick="copyText(this.innerText, this)">IR 75 0180 0000 0000 0501 0577 70</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+                            <span class="w-1 h-6 bg-brand-cyan rounded-full"></span>
+                            آدرس و کدپستی
+                        </h4>
+                        <div class="flex items-start mb-2">
+                                <div class="w-10 h-10 text-teal-500 rounded-full flex items-center justify-center text-lg shrink-0">
+                                    <i class="fas fa-map-marker-alt text-brand-cyan"></i>
+                                </div>
+                                <div class="mt-3">
+                                    <h3 class="font-bold text-white-200">تبریز، خیابان دانشسرا، نرسیده به خیابان منصور، پلاک 162</h3>
+                                </div>
+                        </div>
+                        <div class="flex items-start mb-6">
+                                <div class="w-10 h-10 text-teal-500 rounded-full flex items-center justify-center text-lg shrink-0">
+                                    <i class="fas fa-envelope-open-text text-brand-cyan"></i>
+                                </div>
+                                <div class="mt-3">
+                                    <h3 class="font-bold text-white-200">کدپستی</h3>
+                                    <p class="text-white-200 text-sm mt-1 font-mono mr-2">5136846344</p>
+                                </div>
+                        </div>
+                        <div class="w-full h-45 bg-gray-700 rounded-xl overflow-hidden relative opacity-90 hover:opacity-100 transition shadow-lg group">
+                            <div class="w-full h-full bg-slate-800 flex items-center justify-center">
+                                <img src="../images/map.png" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition duration-500">
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <a href="https://nshn.ir/7d_bAae3ICMBlK" target="_blank" class="bg-white/90 backdrop-blur px-5 py-2 rounded-full text-sm font-bold text-gray-700 hover:bg-white hover:text-primary transition shadow-lg flex items-center gap-2">
+                                    <i class="fas fa-location-arrow"></i> مسیریابی روی نقشه
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 pt-8 border-t border-white/5 text-center">
+                <p class="text-xs text-gray-500">تمامی حقوق این وبسایت محفوظ و متعلق به موسسه خیریه نوبر می باشد.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+        
+    </body>
+</html>

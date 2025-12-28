@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>اخبار و رویدادها | خیریه</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
+                        colors: {
+                            'brand-dark': '#1c2b36',
+                            'brand-cyan': '#4bc3d0',
+                            'brand-cyan-dark': '#3aaebb',
+                            'brand-bg': '#f3f4f6',
+                            primary: '#2ca4a4',
+                            secondary: '#1f2937',
+                            darkblue: '#132c45',
+                        },
+                        boxShadow: { 'card': '0 2px 15px rgba(0,0,0,0.05)' }
+                    }
+                }
+            }
+        </script>
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+        <style>body { font-family: 'Vazirmatn', sans-serif; }</style>
+    </head>
+
+    <body class="bg-brand-bg text-secondary flex flex-col min-h-screen">
+        <script>
+            const API_BASE = 'https://charity-backend.alibagerpour2.workers.dev'; 
+        </script>
+
+        <div id="header-placeholder"></div> 
+        <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-darkblue text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 z-50 text-sm font-bold flex items-center gap-2">
+            <span>کپی شد!</span>
+            <i class="fas fa-check-circle text-green-400"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center relative">
+                <div class="hidden md:block md:col-span-1 h-32 bg-teal-50 rounded-3xl opacity-60 transform rotate-6 translate-x-2"></div>
+                <div class="bg-gradient-to-br from-teal-600 to-teal-700 rounded-[2rem] p-8 md:p-10 shadow-2xl text-center text-white relative overflow-hidden 
+                            col-span-1 md:col-span-3 z-10 transform transition hover:scale-[1.01] border-4 border-white/20">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 leading-tight drop-shadow-md relative z-10">
+                        آخرین اخبار و رویدادها
+                    </h1>
+                    <p class="max-w-lg mx-auto text-teal-50 text-sm sm:text-lg leading-relaxed font-medium relative z-10">
+                        در این بخش می‌توانید آخرین اخبار و رویدادهای خیریه را مشاهده کنید.
+                    </p>
+                </div>
+                <div class="hidden md:block md:col-span-1 h-32 bg-teal-50 rounded-3xl opacity-60 transform -rotate-6 -translate-x-2"></div>
+            </div>
+        </div>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full">
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="col-span-full text-center py-20">
+                    <div class="inline-block w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-gray-400 mt-2 text-sm">در حال دریافت اخبار...</p>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer-placeholder"></div>
+        <script src="header.js"></script>
+        <script src="footer.js"></script>
+
+        <script>
+            async function fetchNews() {
+                const container = document.getElementById('news-container');
+                if (API_BASE.includes('YOUR_SUBDOMAIN')) {
+                    container.innerHTML = `<div class="col-span-full text-center text-red-500 bg-red-100 p-4 rounded-lg">خطا: لطفاً آدرس API_BASE را در کد HTML تنظیم کنید.</div>`;
+                    return;
+                }
+                try {
+                    const response = await fetch(`${API_BASE}/api/news`);
+                    if (!response.ok) throw new Error('خطا در شبکه');
+                    const newsList = await response.json();
+                    container.innerHTML = '';
+                    if (newsList.length === 0) {
+                        container.innerHTML = `<div class="col-span-full text-center text-gray-500 py-10 border-2 border-dashed border-gray-300 rounded-xl">هنوز خبری ثبت نشده است.</div>`;
+                        return;
+                    }
+                    newsList.forEach(news => {
+                        const date = new Date(news.created_at).toLocaleDateString('fa-IR');
+                        const link = `news_detail.html?id=${news.id}`;
+                        let excerpt = news.content.substring(0, 100);
+                        if (news.content.length > 100) excerpt += '...';
+                        const imgUrl = news.image_url || 'https://placehold.co/600x400?text=خبر';
+                        container.innerHTML += `
+                            <div class="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-lg transition border border-gray-100 flex flex-col h-full group transform hover:-translate-y-1 duration-300">
+                                <a href="${link}" class="block h-48 overflow-hidden relative bg-gray-200">
+                                    <img src="${imgUrl}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=تصویر'">
+                                    <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-xs font-bold text-gray-700 px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                                        ${date}
+                                    </div>
+                                </a>
+                                <div class="p-5 flex-1 flex flex-col">
+                                    <a href="${link}">
+                                        <h3 class="text-lg font-bold text-darkblue mb-2 hover:text-primary transition line-clamp-2 leading-snug">${news.title}</h3>
+                                    </a>
+                                    <p class="text-gray-500 text-sm leading-7 mb-4 line-clamp-3 flex-1 text-justify">${excerpt}</p>
+                                    <a href="${link}" class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all mt-auto self-start bg-primary/5 px-4 py-2 rounded-lg hover:bg-primary hover:text-white">
+                                        مشاهده کامل
+                                        <svg class="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } catch (error) {
+                    console.error(error);
+                    container.innerHTML = `<div class="col-span-full text-center text-red-500 bg-white p-8 rounded-xl shadow-sm">خطا در دریافت اطلاعات. لطفا اینترنت خود را بررسی کنید.</div>`;
+                }
+            }
+
+            fetchNews();
+
+        </script>
+    </body>
+</html>

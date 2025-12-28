@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>فروشگاه مهربانی | هدایای نمادین</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Vazirmatn', 'sans-serif'],
+                        },
+                        colors: {
+                            'brand-dark': '#1c2b36',
+                            'brand-cyan': '#4bc3d0',
+                            'brand-cyan-dark': '#3aaebb',
+                            'brand-bg': '#f3f4f6',
+                            primary: '#2ca4a4',
+                            secondary: '#1f2937',
+                            darkblue: '#132c45',
+                            lightbg: '#f9fafb',
+                        },
+                        boxShadow: {
+                            'card': '0 2px 15px rgba(0,0,0,0.05)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com" onload="initTailwind()"></script>
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 pb-24 sm:pb-0">
+    <script>
+        const API_BASE = 'https://charity-backend.alibagerpour2.workers.dev'; 
+    </script>
+
+    <div id="header-placeholder"></div> 
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-darkblue text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 z-50 text-sm font-bold flex items-center gap-2">
+        <span>به سبد اضافه شد!</span>
+        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center relative">
+            <div class="hidden md:block md:col-span-1 h-32 bg-teal-50 rounded-3xl opacity-60 transform rotate-6 translate-x-2"></div>
+            <div class="bg-gradient-to-br from-teal-500 to-emerald-600 rounded-[2rem] p-8 md:p-10 shadow-2xl text-center text-white relative overflow-hidden 
+                        col-span-1 md:col-span-3 z-10 transform transition hover:scale-[1.01] border-4 border-white/20">
+                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 24px 24px;"></div>
+                <div class="absolute -top-10 -right-10 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-teal-900/20 rounded-full blur-2xl"></div>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 leading-tight drop-shadow-md relative z-10">
+                    فروشگاه نمادین مهربانی
+                </h1>
+                <p class="max-w-lg mx-auto text-teal-50 text-sm sm:text-lg leading-relaxed font-medium relative z-10">
+                    اینجا چیزی برای خودتان نمی‌خرید، <br class="hidden sm:block">
+                    <span class="inline-block bg-white/20 px-4 py-1.5 rounded-xl mt-3 backdrop-blur-md border border-white/30 text-white shadow-lg">
+                        بلکه زندگی می‌بخشید.
+                    </span>
+                </p>
+            </div>
+            <div class="hidden md:block md:col-span-1 h-32 bg-teal-50 rounded-3xl opacity-60 transform -rotate-6 -translate-x-2"></div>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 py-2 pb-24 space-y-8 min-h-[300px]" id="main-container">
+        <div class="text-center text-gray-400 py-10">در حال بارگذاری محصولات...</div>
+    </main>
+    <div id="mobile-sticky-cart" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 sm:hidden transform translate-y-full transition-transform duration-300 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] flex items-center justify-between gap-3">
+        <div class="flex flex-col" onclick="toggleCart()">
+            <span class="text-xs text-gray-500">جمع کل کمک:</span>
+            <span class="font-bold text-gray-800 text-lg"><span id="mobile-cart-total">0</span> <span class="text-xs">تومان</span></span>
+        </div>
+        <button onclick="toggleCart()" class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-green-200 active:scale-95 transition">
+            <span>مشاهده سبد</span>
+            <div id="mobile-badge" class="bg-white text-green-600 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold">0</div>
+        </button>
+    </div>
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] hidden transition-opacity opacity-0"></div>
+    <div id="cart-drawer" class="fixed top-0 left-0 h-[100dvh] w-full sm:w-96 bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-4 border-b flex justify-between items-center bg-gray-50">
+            <h2 class="font-bold text-lg flex items-center gap-2">
+                <div class="bg-green-100 p-1.5 rounded-lg text-green-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                </div>
+                سبد مهربانی
+            </h2>
+            <button onclick="toggleCart()" class="p-2 -m-2 text-gray-400 hover:text-gray-600 active:bg-gray-200 rounded-full transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3 bg-white"></div>
+        <div class="p-4 border-t bg-gray-50 safe-area-pb">
+            <div class="flex justify-between mb-4 text-lg font-bold">
+                <span>جمع کل:</span>
+                <span class="text-green-600"><span id="cart-total">0</span> تومان</span>
+            </div>
+            <button onclick="checkout()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3.5 rounded-xl font-bold transition shadow-lg shadow-green-200 active:scale-[0.98] flex justify-center items-center gap-2 text-lg">
+                <span>پرداخت و اهدای کمک</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        const products = [
+            { id: 1, title: 'یک وعده غذای گرم', price: 80000, category: 'food', image: '../images/lunch-food.jpg', desc: 'تامین یک وعده غذای کامل' },
+            { id: 2, title: 'بسته لوازم‌التحریر', price: 350000, category: 'education', image: '../images/ketab.jpg', desc: 'کیف، دفتر و مداد' },
+            { id: 3, title: 'داروی بیمار خاص', price: 1200000, category: 'health', image: '../images/daroo.jpg', desc: 'هزینه داروهای حیاتی' },
+            { id: 4, title: 'کاپشن زمستانی', price: 650000, category: 'food', image: '../images/cloth.jpg', desc: 'محافظت در برابر سرما' },
+            { id: 5, title: 'بسته معیشتی', price: 1500000, category: 'food', image: '../images/baste.jpg', desc: 'برنج، روغن و حبوبات' },
+            { id: 6, title: 'ویزیت پزشک', price: 200000, category: 'health', image: '../images/checkup.jpg', desc: 'چکاپ زنان سرپرست خانوار' },
+            { id: 7, title: 'کتاب داستان', price: 50000, category: 'education', image: '../images/books.jpg', desc: 'اهدای کتاب به مدارس محروم' },
+        ];
+
+        const categories = [
+            { id: 'food', title: 'خوراک و پوشاک', subtitle: 'نیازهای اولیه زندگی' },
+            { id: 'education', title: 'تحصیل و آموزش', subtitle: 'ساختن آینده کودکان' },
+            { id: 'health', title: 'درمان و سلامت', subtitle: 'هزینه‌های پزشکی و دارو' }
+        ];
+
+        let cart = [];
+
+        function renderStore() {
+            const container = document.getElementById('main-container');
+            if (!container) {
+                console.error("Main container not found!");
+                return;
+            }
+            
+            container.innerHTML = '';
+
+            categories.forEach(cat => {
+                const catProducts = products.filter(p => p.category === cat.id);
+                
+                if (catProducts.length > 0) {
+                    const section = document.createElement('div');
+                    section.className = 'fade-in';
+                    
+                    const headerHTML = `
+                        <div class="px-4 mb-3 flex justify-between items-end">
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800">${cat.title}</h2>
+                                <p class="text-xs text-gray-500 mt-1">${cat.subtitle}</p>
+                            </div>
+                            <a href="#" class="text-xs font-bold text-green-600 hover:text-green-700 flex items-center gap-1">
+                                مشاهده همه
+                                <svg class="w-3 h-3 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            </a>
+                        </div>
+                    `;
+
+                    const sliderContainer = document.createElement('div');
+                    sliderContainer.className = 'flex overflow-x-auto gap-4 pr-6 pl-4 pb-4 hide-scrollbar snap-x';
+                    
+                    let cardsHTML = '';
+                    catProducts.forEach(product => {
+                        const fallbackImage = 'https://via.placeholder.com/200x200?text=Kindness'; 
+                        cardsHTML += `
+                            <div class="min-w-[180px] w-[180px] sm:min-w-[220px] sm:w-[220px] snap-start flex flex-col group bg-white rounded-2xl p-2 border border-gray-100 shadow-sm">
+                                <div class="h-32 sm:h-40 rounded-xl overflow-hidden mb-3 bg-gray-200 relative">
+                                    <img src="${product.image}" 
+                                         onerror="this.src='${fallbackImage}'"
+                                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                </div>
+                                
+                                <h3 class="text-base font-bold text-gray-800 mb-1 truncate px-1">${product.title}</h3>
+                                <p class="text-xs text-gray-500 mb-3 line-clamp-2 h-8 px-1 leading-relaxed">${product.desc}</p>
+
+                                <div class="flex items-center justify-between mt-auto px-1 pb-1">
+                                    <div class="font-bold text-gray-900 text-sm">
+                                        ${product.price.toLocaleString()} <span class="text-[10px] text-gray-500 font-normal">تومان</span>
+                                    </div>
+                                    <button onclick="addToCart(${product.id})" class="bg-green-100 text-green-700 hover:bg-green-600 hover:text-white rounded-lg px-3 py-1.5 text-xs font-bold transition active:scale-95 flex items-center gap-1">
+                                        افزودن
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    sliderContainer.innerHTML = cardsHTML;
+                    section.innerHTML = headerHTML;
+                    section.appendChild(sliderContainer);
+                    container.appendChild(section);
+                }
+            });
+        }
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const existing = cart.find(item => item.id === id);
+            if (existing) { existing.qty++; } else { cart.push({ ...product, qty: 1 }); }
+            updateCartUI();
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'translate-y-20');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-20');
+            }, 2000);
+            if (navigator.vibrate) navigator.vibrate(50);
+        }
+
+        function removeFromCart(id) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                if (cart[index].qty === 1) { cart.splice(index, 1); } else { cart[index].qty--; }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const mobileCartTotal = document.getElementById('mobile-cart-total');
+            const mobileBadge = document.getElementById('mobile-badge');
+            const headerBadge = document.getElementById('header-badge');
+            const mobileFooter = document.getElementById('mobile-sticky-cart');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            if(mobileBadge) mobileBadge.innerText = totalQty;
+            if(headerBadge) headerBadge.innerText = totalQty;
+            if(cartTotal) cartTotal.innerText = total.toLocaleString();
+            if(mobileCartTotal) mobileCartTotal.innerText = total.toLocaleString();
+            if (mobileFooter) {
+                if (totalQty > 0) mobileFooter.classList.remove('translate-y-full'); 
+                else mobileFooter.classList.add('translate-y-full');
+            }
+            if (!cartItems) return;
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center py-10 text-gray-400 flex flex-col items-center">
+                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <p class="text-sm">سبد مهربانی خالی است</p>
+                    </div>`;
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex gap-3 bg-white p-3 rounded-xl border border-gray-100 shadow-sm items-center animate-pulse-once">
+                        <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover bg-gray-100">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-gray-800 truncate">${item.title}</h4>
+                            <div class="text-xs text-gray-500">${item.price.toLocaleString()}</div>
+                        </div>
+                        <div class="flex flex-col items-end gap-1">
+                             <div class="font-bold text-green-600 text-sm">${(item.price * item.qty).toLocaleString()}</div>
+                            <div class="flex items-center bg-gray-50 rounded-lg border border-gray-200 h-7">
+                                <button onclick="removeFromCart(${item.id})" class="w-7 h-full flex items-center justify-center text-gray-600 hover:text-red-500">-</button>
+                                <span class="text-xs font-bold w-5 text-center">${item.qty}</span>
+                                <button onclick="addToCart(${item.id})" class="w-7 h-full flex items-center justify-center text-gray-600 hover:text-green-500">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            const isOpen = !drawer.classList.contains('-translate-x-full');
+            if (!isOpen) {
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        function checkout() {
+            if(cart.length === 0) return;
+            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const itemNames = cart.map(item => `${item.qty}x ${item.title}`).join('، ');
+            const summary = `خرید از فروشگاه (${itemNames})`;
+            window.location.href = `https://admin-nobar.alibagherpour-dev.ir/register_pay.html?amount=${totalAmount}&item_type=store&item_name=${encodeURIComponent(summary)}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderStore();
+            updateCartUI();
+        });
+
+    </script>
+    
+    </body>
+</html>

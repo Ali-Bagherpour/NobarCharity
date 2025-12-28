@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>جزئیات خبر | خیریه</title>
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+        <script>
+            function initTailwind() {
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            fontFamily: {
+                                sans: ['Vazirmatn', 'sans-serif'],
+                            },
+                            colors: {
+                                'brand-dark': '#1c2b36',
+                                'brand-cyan': '#4bc3d0',
+                                'brand-cyan-dark': '#3aaebb',
+                                'brand-bg': '#f3f4f6',
+                                primary: '#2ca4a4', // The teal/cyan color
+                                secondary: '#1f2937', // Dark gray/black
+                                darkblue: '#132c45', // The footer/stats blue
+                                lightbg: '#f9fafb',
+                            },
+                            boxShadow: {
+                                'card': '0 2px 15px rgba(0,0,0,0.05)',
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+        <script src="https://cdn.tailwindcss.com" onload="initTailwind()"></script>
+        <style>body { font-family: 'Vazirmatn', sans-serif; -webkit-tap-highlight-color: transparent; }</style>
+    </head>
+
+    <body class="bg-brand-bg text-secondary flex flex-col min-h-screen overflow-x-hidden">
+        <script>
+            const API_BASE = 'https://charity-backend.alibagerpour2.workers.dev'; 
+        </script>
+        <div id="header-placeholder"></div> 
+        <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-darkblue text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 z-50 text-xs font-bold flex items-center gap-2 whitespace-nowrap">
+            <span>کپی شد!</span>
+            <i class="fas fa-check-circle text-green-400"></i>
+        </div>
+
+        <main class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 relative">
+            <div id="loading" class="text-center py-32 flex flex-col items-center">
+                <div class="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-gray-400 mt-4 text-xs">در حال بارگذاری خبر...</p>
+            </div>
+            <div id="news-content" class="hidden transition-opacity duration-500 opacity-0 pb-10">
+                <nav class="flex text-[10px] sm:text-xs text-gray-500 mb-4 gap-2 items-center overflow-x-auto no-scrollbar whitespace-nowrap pb-1">
+                    <a href="../index.html" class="hover:text-primary transition">خانه</a>
+                    <svg class="w-3 h-3 text-gray-300 rotate-180 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    <a href="news_events.html" class="hover:text-primary transition">اخبار</a>
+                    <svg class="w-3 h-3 text-gray-300 rotate-180 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    <span class="text-darkblue font-bold truncate max-w-[150px]" id="breadcrumb-title">...</span>
+                </nav>
+
+                <div class="bg-white rounded-2xl shadow-card border border-gray-100 overflow-hidden">
+                    <div class="relative bg-brand-bg w-full aspect-video sm:aspect-[2/1] overflow-hidden">
+                        <img id="news-image" src="" alt="تصویر خبر" 
+                            class="w-full h-full object-cover transition duration-500 hover:scale-105" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/800x400?text=تصویر+موجود+نیست'; this.classList.add('opacity-100');">
+                    </div>
+                    <div class="p-5 sm:p-8">
+                        <h1 id="news-title" class="text-xl sm:text-2xl md:text-3xl font-black text-darkblue mb-4 leading-snug"></h1>
+                        <div class="flex flex-wrap items-center gap-y-2 gap-x-4 text-[10px] sm:text-xs text-gray-500 border-b border-gray-100 pb-5 mb-5">
+                            <span class="flex items-center gap-1.5 bg-gray-50 px-2 py-1 rounded-lg">
+                                <svg class="w-3.5 h-3.5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> 
+                                <span id="news-date">...</span>
+                            </span>
+                            <span class="flex items-center gap-1.5 bg-gray-50 px-2 py-1 rounded-lg">
+                                <svg class="w-3.5 h-3.5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg> 
+                                روابط عمومی
+                            </span>
+                        </div>
+                        <article class="prose prose-sm sm:prose-base max-w-none text-justify leading-loose text-gray-700">
+                            <p id="news-body" class="whitespace-pre-line break-words"></p>
+                        </article>
+                        <div class="mt-8 pt-6 border-t border-gray-100 sm:hidden">
+                            <button onclick="shareNews()" class="w-full flex items-center justify-center gap-2 text-primary font-bold bg-primary/5 py-3 rounded-xl hover:bg-primary/10 transition text-sm">
+                                <i class="fas fa-share-alt"></i>
+                                اشتراک‌گذاری این خبر
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="error-msg" class="hidden text-center py-20 bg-white rounded-2xl shadow-sm border border-red-100 mx-auto max-w-md mt-10 p-6">
+                <div class="w-14 h-14 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <p class="text-red-600 font-bold text-base mb-2">خبر مورد نظر یافت نشد!</p>
+                <p class="text-gray-500 text-xs mb-6 leading-relaxed">ممکن است خبر حذف شده باشد یا لینک اشتباه وارد شده است.</p>
+                <a href="../news_events.html" class="inline-block bg-primary text-white px-6 py-2.5 rounded-xl hover:bg-brand-cyan transition text-xs font-bold shadow-lg shadow-primary/20">بازگشت به لیست اخبار</a>
+            </div>
+        </main>
+
+        <div id="footer-placeholder"></div>
+        <script src="header.js"></script>
+        <script src="footer.js"></script>
+
+        <script>
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+            window.scrollTo(0, 0);
+            async function fetchSingleNews() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const id = urlParams.get('id');
+                if (!id) {
+                    showError();
+                    return;
+                }
+                try {
+                    const response = await fetch(`${API_BASE}/api/news/${id}`);
+                    if (!response.ok) throw new Error('Not found');
+                    const news = await response.json();
+                    renderNews(news);
+                } catch (error) {
+                    console.error(error);
+                    showError();
+                }
+            }
+
+            function renderNews(news) {
+                document.getElementById('loading').classList.add('hidden');
+                const contentDiv = document.getElementById('news-content');
+                contentDiv.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    window.scrollTo(0, 0);
+                    contentDiv.classList.remove('opacity-0');
+                });
+                document.title = news.title + ' | جزئیات خبر';
+                document.getElementById('breadcrumb-title').innerText = news.title;
+                document.getElementById('news-title').innerText = news.title;
+                const date = new Date(news.created_at).toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('news-date').innerText = date;
+                document.getElementById('news-body').innerText = news.content;
+                const img = document.getElementById('news-image');
+                if (news.image_url) {
+                    img.src = news.image_url;
+                } else {
+                    img.src = 'https://placehold.co/800x400?text=بدون+تصویر';
+                }
+            }
+
+            function showError() {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('error-msg').classList.remove('hidden');
+            }
+            
+            function shareNews() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        url: window.location.href
+                    }).catch(console.error);
+                } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    const toast = document.getElementById('toast');
+                    toast.classList.remove('translate-y-20', 'opacity-0');
+                    setTimeout(() => {
+                        toast.classList.add('translate-y-20', 'opacity-0');
+                    }, 2000);
+                }
+            }
+            fetchSingleNews();
+            
+        </script>
+    </body>
+</html>

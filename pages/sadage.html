@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>پرداخت صدقه آنلاین | نذر و قربانی</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+        <style>
+            body { font-family: 'Vazirmatn', sans-serif; -webkit-tap-highlight-color: transparent; }
+            .islamic-pattern {
+                background-image: radial-gradient(#0f766e 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+            .fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .freq-selector:checked + div {
+                background-color: #0f766e;
+                color: white;
+                border-color: #0f766e;
+                box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+            }
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none; margin: 0; 
+            }
+            .hide-scrollbar::-webkit-scrollbar { display: none; }
+            .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        </style>
+    </head>
+
+    <body class="bg-gray-50 text-gray-800 min-h-[100dvh] flex flex-col items-center justify-start sm:justify-center relative overflow-x-hidden">
+        <div class="absolute top-0 left-0 right-0 h-64 bg-teal-700 islamic-pattern opacity-10 z-0"></div>
+        <div class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-transparent to-gray-50 z-0"></div>
+
+        <header class="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-30 max-w-md mx-auto w-full">
+            <div class="flex items-center gap-2">
+                <div class="text-2xl font-black text-darkblue flex flex-col items-center leading-none">
+                    <span>NOBAR</span>
+                    <span class="text-xs font-normal">CHARITY</span>
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" alt="Logo" class="h-10 w-10 opacity-80">
+            </div>
+            <div class="flex items-center gap-2">
+            <div class="h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold shadow-lg" style="width: 110px;">پرداخت صدقه</div>
+            </div>
+        </header>
+
+        <main class="w-full max-w-md px-4 pt-32 pb-8 z-20 sm:pt-24 sm:mt-0 flex-1 flex flex-col justify-center">
+            <div class="bg-white rounded-3xl shadow-sm sm:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] p-5 sm:p-8 fade-in-up relative border border-gray-100/50 sm:border-gray-100">
+                <div class="text-center mb-6 sm:mb-8">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white shadow-lg relative">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <div class="absolute -bottom-1 -right-1 bg-yellow-400 rounded-full p-1.5 border-2 border-white">
+                            <svg class="w-3 h-3 text-yellow-900" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
+                        </div>
+                    </div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-gray-800 mb-1">صدقه آنلاین</h1>
+                    <p class="text-xs sm:text-sm text-gray-500">صدقه، بلا را دفع می‌کند و روزی را زیاد.</p>
+                </div>
+                <form id="sadaqah-form" onsubmit="handlePayment(event)">  
+                    <div class="grid grid-cols-2 gap-2 bg-gray-50 p-1.5 rounded-2xl mb-6">
+                        <label class="cursor-pointer tap-highlight-transparent">
+                            <input type="radio" name="frequency" value="once" class="freq-selector hidden" checked>
+                            <div class="text-center py-3 sm:py-2.5 rounded-xl text-sm font-bold text-gray-500 transition duration-300">یک‌بار پرداخت</div>
+                        </label>
+                        <label class="cursor-pointer relative tap-highlight-transparent">
+                            <input type="radio" name="frequency" value="daily" class="freq-selector hidden">
+                            <div class="text-center py-3 sm:py-2.5 rounded-xl text-sm font-bold text-gray-500 transition duration-300">اشتراک روزانه</div>
+                            <span class="absolute -top-2 -left-2 bg-red-500 text-white text-[9px] px-1.5 py-0.5 rounded-md shadow-sm animate-bounce">پیشنهادی</span>
+                        </label>
+                    </div>
+                    <div class="mb-6 relative group">
+                        <label class="block text-xs font-bold text-gray-400 mb-2 pr-1">مبلغ صدقه (به تومان)</label>
+                        <div class="relative">
+                            <input type="number" inputmode="numeric" pattern="[0-9]*" id="amount-input" class="w-full text-center text-3xl font-bold text-gray-800 border-b-2 border-gray-200 py-3 focus:outline-none focus:border-teal-500 transition bg-transparent placeholder-gray-200" placeholder="0">
+                            <span class="absolute left-0 bottom-4 text-gray-400 text-sm pointer-events-none">تومان</span>
+                        </div>
+                        <div class="flex justify-start sm:justify-center gap-2 mt-4 overflow-x-auto pb-2 hide-scrollbar snap-x">
+                            <button type="button" onclick="setAmount(5000)" class="snap-start flex-shrink-0 px-4 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-600 hover:border-teal-500 hover:text-teal-600 hover:bg-teal-50 transition active:scale-95 active:bg-teal-50">۵,۰۰۰</button>
+                            <button type="button" onclick="setAmount(10000)" class="snap-start flex-shrink-0 px-4 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-600 hover:border-teal-500 hover:text-teal-600 hover:bg-teal-50 transition active:scale-95 active:bg-teal-50">۱۰,۰۰۰</button>
+                            <button type="button" onclick="setAmount(20000)" class="snap-start flex-shrink-0 px-4 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-600 hover:border-teal-500 hover:text-teal-600 hover:bg-teal-50 transition active:scale-95 active:bg-teal-50">۲۰,۰۰۰</button>
+                            <button type="button" onclick="setAmount(50000)" class="snap-start flex-shrink-0 px-4 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-600 hover:border-teal-500 hover:text-teal-600 hover:bg-teal-50 transition active:scale-95 active:bg-teal-50">۵۰,۰۰۰</button>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-xs font-bold text-gray-400 mb-2 pr-1">نیت صدقه</label>
+                        <div class="relative">
+                            <select id="niyyat-select" class="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 appearance-none">
+                                <option value="general">سلامتی و تعجیل در فرج امام زمان (عج)</option>
+                                <option value="healing">شفا و سلامتی بیماران</option>
+                                <option value="protection">دفع بلا و چشم زخم</option>
+                                <option value="deceased">شادی روح اموات</option>
+                                <option value="other">سایر نیات</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-4 text-gray-500">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" onclick="paymentrequest()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-teal-200 transform transition active:scale-[0.98] flex items-center justify-center gap-2 text-lg group touch-manipulation">
+                        <span>پرداخت و ثبت صدقه</span>
+                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    </button>
+                    <p class="text-center text-[10px] text-gray-400 mt-4 pb-2">
+                        پرداخت امن با کلیه کارت‌های بانکی عضو شتاب
+                    </p>
+                </form>
+            </div>
+            <div class="mt-6 text-center opacity-60">
+                <p class="text-xs text-teal-800">امام علی (ع):</p>
+                <p class="text-sm font-bold text-teal-900 mt-1">«روزى را با صدقه دادن فرود آورید.»</p>
+            </div>
+        </main>
+
+        <script>
+            function setAmount(amount) {
+                const input = document.getElementById('amount-input');
+                input.value = amount;
+                input.classList.add('scale-105');
+                setTimeout(() => input.classList.remove('scale-105'), 150);
+                if (navigator.vibrate) navigator.vibrate(30);
+            }
+
+            function handlePayment(e) {
+                e.preventDefault();
+                const amount = document.getElementById('amount-input').value;
+                const niyyat = document.getElementById('niyyat-select').options[document.getElementById('niyyat-select').selectedIndex].text;
+                const frequency = document.querySelector('input[name="frequency"]:checked').value;
+                if (!amount || amount < 1000) {
+                    const input = document.getElementById('amount-input');
+                    input.focus();
+                    input.classList.add('border-red-500', 'text-red-600');
+                    setTimeout(() => input.classList.remove('border-red-500', 'text-red-600'), 2000);
+                    if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+                    return;
+                }
+                const freqText = frequency === 'daily' ? 'به صورت اشتراک روزانه' : '';
+            }
+
+            function paymentrequest(){
+                const amount = document.getElementById('amount-input').value;
+                const niyyat = document.getElementById('niyyat-select').options[document.getElementById('niyyat-select').selectedIndex].text;
+                const frequency = document.querySelector('input[name="frequency"]:checked').value;
+                if (!amount || amount < 1000) {
+                    const input = document.getElementById('amount-input');
+                    input.focus();
+                    input.classList.add('border-red-500', 'text-red-600');
+                    setTimeout(() => input.classList.remove('border-red-500', 'text-red-600'), 2000);
+                    if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+                    return;
+                }
+                const freqText = frequency === 'daily' ? 'به صورت اشتراک روزانه' : '';
+                const url = `https://admin-nobar.alibagherpour-dev.ir/register_pay.html?item_type=${frequency}&item_name=(صدقه + ${niyyat})&amount=${amount}`;
+                window.location.href = url;
+            }
+            
+        </script>
+    </body>
+</html>

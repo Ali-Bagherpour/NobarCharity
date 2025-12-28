@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>تامین جهیزیه | آغاز سفیدبختی</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Vazirmatn', 'sans-serif'],
+                        },
+                        colors: {
+                            'brand-dark': '#1c2b36',
+                            'brand-cyan': '#4bc3d0',
+                            'brand-cyan-dark': '#3aaebb',
+                            'brand-bg': '#f3f4f6',
+                            primary: '#2ca4a4', // The teal/cyan color
+                            secondary: '#1f2937', // Dark gray/black
+                            darkblue: '#132c45', // The footer/stats blue
+                            lightbg: '#f9fafb',
+                        },
+                        boxShadow: {
+                            'card': '0 2px 15px rgba(0,0,0,0.05)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com" onload="initTailwind()"></script>
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .pattern-bg {
+            background-color: #fdf2f8; /* pink-50 */
+            background-image: radial-gradient(#fbcfe8 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .card-shadow { box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.3); }
+        /* حذف دکمه‌های بالا پایین اینپوت نامبر */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 pattern-bg text-gray-700 min-h-screen">
+    <header>
+        <div id="header-placeholder"></div> 
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-10 pb-24">
+        <div class="text-center mb-12 relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-pink-300 rounded-full blur-[80px] -z-10 opacity-50"></div>
+            <h1 class="text-3xl md:text-5xl font-black text-gray-800 mb-4 drop-shadow-sm">شروع یک عاشقانه ساده</h1>
+            <p class="text-sm md:text-base text-gray-500 max-w-xl mx-auto leading-loose">
+                جهیزیه، تنها چند تکه وسیله نیست؛ امید به ساختن یک آشیانه است. <br>
+                با کمک هم، ۵ زوج جوان را راهی خانه بخت می‌کنیم.
+            </p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl shadow-pink-100 border border-white mb-16 transform hover:-translate-y-1 transition duration-500 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-20 h-20 bg-pink-50 rounded-bl-full -z-0"></div>
+            
+            <div class="flex justify-between items-end mb-4 relative z-10">
+                <div>
+                    <span class="bg-pink-100 text-pink-600 text-[10px] font-bold px-3 py-1 rounded-full border border-pink-200">پرونده: ۱۴۰۲-۸۵</span>
+                    <h2 class="text-lg font-bold mt-2 text-gray-800">پیشرفت تامین اقلام</h2>
+                </div>
+                <div class="text-left">
+                    <span class="text-3xl font-black text-pink-500">۶۵٪</span>
+                </div>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
+                <div class="bg-gradient-to-r from-pink-400 to-rose-500 h-3 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(236,72,153,0.5)]" style="width: 65%"></div>
+            </div>
+            <div class="mt-3 flex justify-between text-[10px] text-gray-400 font-mono">
+                <span>جمع آوری شده: ۱۳۰,۰۰۰,۰۰۰</span>
+                <span>هدف: ۲۰۰,۰۰۰,۰۰۰</span>
+            </div>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+            <span class="w-2 h-8 bg-pink-500 rounded-full"></span>
+            قطعه پازل خود را انتخاب کنید
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-2xl p-1 border border-gray-100 hover:border-pink-300 transition duration-300 group card-shadow h-full flex flex-col">
+                <div class="p-5 flex-1 flex flex-col items-center text-center">
+                    <div class="h-28 w-28 bg-blue-50 rounded-full mb-4 flex items-center justify-center text-5xl group-hover:scale-110 transition duration-500 shadow-inner">❄️</div>
+                    <h4 class="font-bold text-gray-800 text-lg mb-1">یخچال فریزر</h4>
+                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">نگهبان برکت سفره‌های کوچک</p>
+                    <div class="mt-auto w-full">
+                        <div class="flex justify-between items-center mb-3 bg-gray-50 p-2 rounded-lg">
+                            <span class="text-xs text-gray-500">هزینه:</span>
+                            <span class="font-black text-pink-600 text-sm">۱۵,۰۰۰,۰۰۰ <span class="text-[9px] font-normal text-gray-400">تومان</span></span>
+                        </div>
+                        <button onclick="donateItem('یخچال فریزر', 15000000)" class="w-full bg-pink-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-pink-600 transition shadow-lg shadow-pink-200 active:scale-95">
+                            تقبل هزینه
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-1 border border-gray-100 hover:border-orange-300 transition duration-300 group card-shadow h-full flex flex-col">
+                <div class="p-5 flex-1 flex flex-col items-center text-center">
+                    <div class="h-28 w-28 bg-orange-50 rounded-full mb-4 flex items-center justify-center text-5xl group-hover:scale-110 transition duration-500 shadow-inner">🔥</div>
+                    <h4 class="font-bold text-gray-800 text-lg mb-1">اجاق گاز</h4>
+                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">گرما بخش خانه و کانون خانواده</p>
+                    <div class="mt-auto w-full">
+                        <div class="flex justify-between items-center mb-3 bg-gray-50 p-2 rounded-lg">
+                            <span class="text-xs text-gray-500">هزینه:</span>
+                            <span class="font-black text-orange-600 text-sm">۶,۰۰۰,۰۰۰ <span class="text-[9px] font-normal text-gray-400">تومان</span></span>
+                        </div>
+                        <button onclick="donateItem('اجاق گاز', 6000000)" class="w-full bg-orange-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200 active:scale-95">
+                            تقبل هزینه
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-1 border border-gray-100 hover:border-blue-300 transition duration-300 group card-shadow h-full flex flex-col">
+                <div class="p-5 flex-1 flex flex-col items-center text-center">
+                    <div class="h-28 w-28 bg-indigo-50 rounded-full mb-4 flex items-center justify-center text-5xl group-hover:scale-110 transition duration-500 shadow-inner">🧺</div>
+                    <h4 class="font-bold text-gray-800 text-lg mb-1">لباسشویی</h4>
+                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">آسایش و پاکیزگی برای نوعروس</p>
+                    <div class="mt-auto w-full">
+                        <div class="flex justify-between items-center mb-3 bg-gray-50 p-2 rounded-lg">
+                            <span class="text-xs text-gray-500">هزینه:</span>
+                            <span class="font-black text-indigo-600 text-sm">۱۲,۰۰۰,۰۰۰ <span class="text-[9px] font-normal text-gray-400">تومان</span></span>
+                        </div>
+                        <button onclick="donateItem('ماشین لباسشویی', 12000000)" class="w-full bg-indigo-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-indigo-600 transition shadow-lg shadow-indigo-200 active:scale-95">
+                            تقبل هزینه
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-1 shadow-2xl h-full flex flex-col transform hover:scale-105 transition duration-300">
+                <div class="p-6 flex-1 flex flex-col items-center text-center justify-center text-white">
+                    <div class="text-5xl mb-4 animate-pulse">❤️</div>
+                    <h4 class="font-bold text-xl mb-2">سهیم باشید</h4>
+                    <p class="text-xs text-gray-300 mb-6 leading-relaxed opacity-80">
+                        شاید نتوانید هزینه کامل یک وسیله را بپردازید، اما قطره قطره جمع گردد...
+                    </p>
+                    <button onclick="donateGeneral()" class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-gray-100 transition shadow-lg active:scale-95">
+                        پرداخت مبلغ دلخواه
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <div id="custom-amount-modal" class="fixed inset-0 bg-black/60 z-[60] hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl transform scale-100 transition-all border border-pink-100">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">❤️</div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">مبلغ دلخواه</h3>
+                <p class="text-sm text-gray-500 mb-6 leading-relaxed">لطفاً مبلغ مورد نظر خود را جهت کمک به جهیزیه وارد نمایید.</p>
+                
+                <div class="relative mb-6">
+                    <input type="number" id="custom-amount-input" class="w-full border-2 border-pink-200 rounded-2xl px-4 py-4 text-2xl font-black text-center text-pink-600 focus:border-pink-500 focus:bg-pink-50 outline-none transition placeholder-pink-200" placeholder="0">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-xs text-gray-400 font-bold pointer-events-none">تومان</span>
+                </div>
+
+                <div class="flex gap-3">
+                    <button onclick="closeModal()" class="flex-1 py-3 rounded-xl border-2 border-gray-200 text-gray-500 font-bold hover:bg-gray-50 transition text-sm">انصراف</button>
+                    <button onclick="submitCustomAmount()" class="flex-[2] py-3 rounded-xl bg-pink-500 text-white font-bold hover:bg-pink-600 shadow-lg shadow-pink-200 transition text-sm flex justify-center items-center gap-2">
+                        <span>ادامه پرداخت</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function donateItem(item, price) {
+            const url = `https://admin-nobar.alibagherpour-dev.ir/register_pay.html?item_type=dowry&item_name=${encodeURIComponent(item)}&amount=${price}`;
+            window.location.href = url;
+        }
+        function donateGeneral() {
+            document.getElementById('custom-amount-modal').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('custom-amount-input').focus();
+            }, 100);
+        }
+        function closeModal() {
+            document.getElementById('custom-amount-modal').classList.add('hidden');
+        }
+        function submitCustomAmount() {
+            const amount = document.getElementById('custom-amount-input').value;
+            if (!amount || parseInt(amount) < 1000) {
+                alert('لطفاً مبلغ معتبری وارد کنید (حداقل ۱۰۰۰ تومان)');
+                return;
+            }
+            const url = `https://admin-nobar.alibagherpour-dev.ir/register_pay.html?item_type=dowry&item_name=${encodeURIComponent('کمک عمومی به جهیزیه')}&amount=${amount}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

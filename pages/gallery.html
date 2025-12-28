@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>روایت مهربانی | گالری تصاویر</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1rem;
+        }
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1c2b36',
+                        'brand-cyan': '#4bc3d0',
+                        'brand-cyan-dark': '#3aaebb',
+                        'brand-bg': '#f3f4f6', 
+                    },
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+
+    <div id="header-placeholder"></div> 
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-darkblue text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 z-50 text-sm font-bold flex items-center gap-2">
+        <span>کپی شد!</span>
+        <i class="fas fa-check-circle text-green-400"></i>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 pt-24 pb-12">
+        <div class="flex justify-center gap-3 mb-10 overflow-x-auto pb-2">
+            <button class="px-5 py-2 rounded-full bg-white text-gray-900 font-bold text-sm whitespace-nowrap">همه تصاویر</button>
+            <button class="px-5 py-2 rounded-full bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 transition text-sm whitespace-nowrap">توزیع غذا</button>
+            <button class="px-5 py-2 rounded-full bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 transition text-sm whitespace-nowrap">جشن‌های خیریه</button>
+            <button class="px-5 py-2 rounded-full bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 transition text-sm whitespace-nowrap">بازسازی منازل</button>
+        </div>
+        <div class="masonry-grid" id="gallery-container">
+            <div class="masonry-item relative group rounded-2xl overflow-hidden cursor-zoom-in">
+                <img src="https://source.unsplash.com/random/600x800/?charity,people" class="w-full h-auto transform transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300 delay-75">لبخند رضایت</h3>
+                    <p class="text-xs text-gray-300 mt-1 translate-y-4 group-hover:translate-y-0 transition duration-300 delay-100">توزیع بسته مهر در مناطق کپرنشین</p>
+                </div>
+            </div>
+            <div class="masonry-item relative group rounded-2xl overflow-hidden cursor-zoom-in">
+                <img src="https://source.unsplash.com/random/800x600/?food,cooking" class="w-full h-auto transform transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300 delay-75">آشپزخانه حسینی</h3>
+                    <p class="text-xs text-gray-300 mt-1 translate-y-4 group-hover:translate-y-0 transition duration-300 delay-100">طبخ ۵۰۰ پرس غذای گرم</p>
+                </div>
+            </div>
+            <div class="masonry-item relative group rounded-2xl overflow-hidden cursor-zoom-in">
+                <img src="https://source.unsplash.com/random/600x700/?kids,school" class="w-full h-auto transform transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300 delay-75">زنگ مدرسه</h3>
+                    <p class="text-xs text-gray-300 mt-1 translate-y-4 group-hover:translate-y-0 transition duration-300 delay-100">اهدای لوازم التحریر</p>
+                </div>
+            </div>
+            <div class="masonry-item relative group rounded-2xl overflow-hidden cursor-zoom-in">
+                <img src="https://source.unsplash.com/random/600x900/?volunteer" class="w-full h-auto transform transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300 delay-75">تیم پزشکی</h3>
+                    <p class="text-xs text-gray-300 mt-1 translate-y-4 group-hover:translate-y-0 transition duration-300 delay-100">ویزیت رایگان در روستاها</p>
+                </div>
+            </div>
+            <div class="masonry-item relative group rounded-2xl overflow-hidden cursor-zoom-in">
+                <img src="https://source.unsplash.com/random/700x700/?donation" class="w-full h-auto transform transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="font-bold text-lg translate-y-4 group-hover:translate-y-0 transition duration-300 delay-75">بسته‌بندی ارزاق</h3>
+                    <p class="text-xs text-gray-300 mt-1 translate-y-4 group-hover:translate-y-0 transition duration-300 delay-100">شب عید ۱۴۰۲</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <button class="bg-gray-800 text-white px-8 py-3 rounded-full hover:bg-gray-700 transition shadow-lg border border-gray-700">بارگذاری تصاویر بیشتر</button>
+        </div>
+    </main>
+    <footer>
+        <div id="footer-placeholder"></div>
+    </footer>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+</body>
+</html>

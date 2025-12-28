@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارتباط با ما | خیریه نوبر</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
+                    colors: {
+                        'brand-dark': '#1c2b36',
+                        'brand-cyan': '#4bc3d0',
+                        'brand-bg': '#f3f4f6',
+                        primary: '#2ca4a4',
+                        secondary: '#1f2937',
+                        darkblue: '#132c45',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>body { font-family: 'Vazirmatn', sans-serif; }</style>
+</head>
+<body class="bg-brand-bg text-secondary flex flex-col min-h-screen">
+    <script>
+        const API_BASE = 'https://charity-backend.alibagerpour2.workers.dev'; 
+    </script>
+    <div id="header-placeholder"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center relative">
+            <div class="hidden md:block md:col-span-1 h-32 bg-teal-50 rounded-3xl opacity-60 transform rotate-6 translate-x-2"></div>
+            <div class="bg-gradient-to-br from-teal-600 to-teal-700 rounded-[2rem] p-8 md:p-10 shadow-2xl text-center text-white relative overflow-hidden 
+                        col-span-1 md:col-span-3 z-10 transform transition hover:scale-[1.01] border-4 border-white/20">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 leading-tight drop-shadow-md relative z-10">
+                    ارتباط با موسسه
+                </h1>
+                <p class="max-w-lg mx-auto text-teal-50 text-sm sm:text-lg leading-relaxed font-medium relative z-10">
+                    در این بخش می‌توانید با موسسه خیریه نوبر ارتباط برقرار کنید.<br class="hidden sm:block">
+                    <span class="inline-block bg-white/20 px-4 py-1.5 rounded-xl mt-3 backdrop-blur-md border border-white/30 text-white shadow-lg">
+                        صدای شما برای ما شنیدنی است
+                    </span>
+                </p>
+            </div>
+            <div class="hidden md:block md:col-span-1 h-32 bg-teal-50 rounded-3xl opacity-60 transform -rotate-6 -translate-x-2"></div>
+            
+        </div>
+    </div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                    <h2 class="text-xl font-bold text-darkblue mb-6 border-r-4 border-primary pr-3">راه‌های ارتباطی</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-lg shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">آدرس دفتر مرکزی</h3>
+                                <p class="text-gray-500 text-sm mt-1 leading-relaxed">
+                                    تبریز، خیابان دانشسرا، نرسیده به منصور، پلاک 162
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-lg shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">تلفن‌های تماس</h3>
+                                <div class="text-gray-500 text-sm mt-1 space-y-1" dir="ltr">
+                                    <p>041-35248653</p>
+                                    <p>041-35237946</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center text-lg shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">پست الکترونیک</h3>
+                                <p class="text-gray-500 text-sm mt-1 font-mono">info@nobar.org</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-pink-50 text-pink-600 rounded-full flex items-center justify-center text-lg shrink-0">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">شبکه‌های اجتماعی</h3>
+                                <div class="flex gap-3 mt-2">
+                                    <a href="#" class="text-gray-400 hover:text-pink-600 transition"><i class="fab fa-instagram text-xl"></i></a>
+                                    <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-telegram text-xl"></i></a>
+                                    <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-whatsapp text-xl"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-200 rounded-3xl overflow-hidden h-64 shadow-inner border border-gray-300 relative group">
+                    <img src="../images/map.png" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <a href="https://nshn.ir/7d_bAae3ICMBlK" target="_blank" class="bg-white/90 backdrop-blur px-6 py-2 rounded-full text-sm font-bold text-gray-700 hover:bg-white hover:text-primary transition shadow-lg flex items-center gap-2">
+                            <i class="fas fa-location-arrow"></i> مسیریابی روی نقشه
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-lg border-t-4 border-primary">
+                <h2 class="text-xl font-bold text-darkblue mb-2">ارسال پیام و نظرات</h2>
+                <p class="text-gray-500 text-sm mb-6">انتقادات و پیشنهادات شما چراغ راه ماست.</p>
+
+                <form onsubmit="sendMessage(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 mb-1">نام شما</label>
+                            <input type="text" id="name" class="w-full bg-gray-50 border border-gray-100 p-3 rounded-xl focus:border-primary focus:bg-white transition outline-none text-sm" placeholder="مثال: علی محمدی">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 mb-1">شماره تماس</label>
+                            <input type="tel" id="phone" class="w-full bg-gray-50 border border-gray-100 p-3 rounded-xl focus:border-primary focus:bg-white transition outline-none text-sm text-left" dir="ltr" placeholder="09xxxxxxxxx">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 mb-1">موضوع پیام</label>
+                        <input type="text" id="subject" class="w-full bg-gray-50 border border-gray-100 p-3 rounded-xl focus:border-primary focus:bg-white transition outline-none text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 mb-1">متن پیام</label>
+                        <textarea id="message" rows="10" class="w-full bg-gray-50 border border-gray-100 p-3 rounded-xl focus:border-primary focus:bg-white transition outline-none text-sm" placeholder="پیام خود را بنویسید..." required></textarea>
+                    </div>
+                    <button type="submit" id="btn-submit" class="w-full bg-primary text-white font-bold py-3.5 rounded-xl hover:bg-teal-600 transition shadow-lg shadow-teal-200 active:scale-95 flex justify-center items-center gap-2">
+                        <span>ارسال پیام</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('user_token');
+            if(token) {
+                fetch(`${API_BASE}/api/user/profile`, { headers: { 'Authorization': token } })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.user) {
+                            document.getElementById('name').value = data.user.name;
+                            document.getElementById('phone').value = data.user.phone;
+                        }
+                    })
+                    .catch(console.error);
+            }
+        });
+        async function sendMessage(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit');
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            if(!message) return alert('متن پیام الزامی است');
+            if(!localStorage.getItem('user_token') && (!name || !phone)) {
+                return alert('لطفاً نام و شماره تماس خود را وارد کنید');
+            }
+            btn.disabled = true;
+            btn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> در حال ارسال...';
+            try {
+                const body = {
+                    name, 
+                    phone, 
+                    subject, 
+                    message,
+                    user_token: localStorage.getItem('user_token') 
+                };
+                const res = await fetch(`${API_BASE}/api/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+                if(res.ok) {
+                    alert('پیام شما با موفقیت دریافت شد. در اسرع وقت پاسخ خواهیم داد.');
+                    document.getElementById('message').value = '';
+                    document.getElementById('subject').value = '';
+                } else {
+                    alert('خطا در ارسال پیام');
+                }
+            } catch(e) {
+                alert('خطا در شبکه');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<span>ارسال پیام</span><i class="fas fa-paper-plane"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>روش های کمک | موسسه خیریه نوبر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Vazirmatn', 'sans-serif'],
+                        },
+                        colors: {
+                            'brand-dark': '#1c2b36',
+                            'brand-cyan': '#4bc3d0',
+                            'brand-cyan-dark': '#3aaebb',
+                            'brand-bg': '#f3f4f6',
+                            primary: '#2ca4a4', // Teal/Cyan
+                            secondary: '#1f2937', // Dark Gray
+                            darkblue: '#132c45', // Deep Blue
+                            lightbg: '#f9fafb',
+                        },
+                        boxShadow: {
+                            'card': '0 2px 15px rgba(0,0,0,0.05)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com" onload="initTailwind()"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+        function copyText(text, element) {
+            const textArea = document.createElement("textarea");
+            const valueToCopy = element.getAttribute('data-value') || text;
+            textArea.value = valueToCopy;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast('کپی شد!');
+                const originalBg = element.style.backgroundColor;
+                element.style.backgroundColor = '#dcfce7';
+                setTimeout(() => {
+                    element.style.backgroundColor = originalBg;
+                }, 300);
+            } catch (err) {
+                console.error('Unable to copy', err);
+                showToast('خطا در کپی');
+            }
+            document.body.removeChild(textArea);
+        }
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2000);
+        }
+    </script>
+    <style>
+        .copy-hover:hover {
+            background-color: #f3f4f6;
+            cursor: pointer;
+            border-radius: 4px;
+            position: relative;
+        }
+        .copy-hover:active {
+            transform: scale(0.98);
+        }
+        @media (min-width: 768px) {
+            .copy-hover:hover::after {
+                content: 'کپی';
+                position: absolute;
+                top: -25px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #333;
+                color: white;
+                font-size: 10px;
+                padding: 2px 6px;
+                border-radius: 4px;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-600 bg-gray-50 flex flex-col min-h-screen">
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 translate-y-20 opacity-0 bg-darkblue text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 z-50 text-sm font-bold flex items-center gap-2">
+        <span>کپی شد!</span>
+        <i class="fas fa-check-circle text-green-400"></i>
+    </div>
+    <div id="header-placeholder"></div>
+    <main class="container mx-auto px-4 py-8 md:py-12 flex-grow">
+        <div class="flex justify-start mb-8">
+            <h1 class="bg-darkblue text-white py-2 px-6 rounded-l-full rounded-r-md font-bold text-lg shadow-md relative pr-8">
+                روش های کمک
+                <span class="absolute right-0 top-0 bottom-0 w-2 bg-primary rounded-r-md"></span>
+            </h1>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 mb-8 relative overflow-hidden">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-6">
+                <div class="bg-white border-2 border-dashed border-gray-300 rounded-lg p-3 w-16 h-16 flex items-center justify-center text-primary text-2xl shrink-0">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">کمک های نقدی</h2>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        خیرین گرامی می توانند کمک های نقدی خود را از طریق شماره حساب، کارت یا شبای بانک هایی که جمعیت خیریه نوبر در زیر معرفی کرده است، واریز نمایند. برای کپی کردن شماره‌ها، روی آن‌ها کلیک کنید.
+                    </p>
+                </div>
+            </div>
+            <div class="hidden md:block overflow-x-auto">
+                <table class="w-full text-sm text-right border-collapse min-w-[600px]">
+                    <thead class="bg-gray-50 text-gray-700 font-bold border-b border-gray-200">
+                        <tr>
+                            <th class="p-4">شماره شبا</th>
+                            <th class="p-4">شماره کارت</th>
+                            <th class="p-4">شماره حساب</th>
+                            <th class="p-4">بانک و شعبه</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 text-gray-600">
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR55 0150 0000 0000 9800 1500 03</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">5892 1070 4402 5446</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">9800150003</td>
+                            <td class="p-4 font-medium text-gray-800">جاری طلایی بانک سپه (شعبه ۰۰۹ تبریز)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR80 0170 0000 0010 9180 9180 04</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">6037 9918 9990 3461</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">0109180918004</td>
+                            <td class="p-4 font-medium text-gray-800">جاری سیبا بانک ملی (شعبه ۴۵۰۱ تبریز)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR55 0190 0000 0010 3385 5310 06</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">6037 6919 9019 2544</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">0103385531006</td>
+                            <td class="p-4 font-medium text-gray-800">جاری سپهر بانک صادرات (شعبه ۱۸ رضوی تبریز)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR18 0120 0000 0000 1703 0008 36</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">6104 3379 1896 4832</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">1703000836</td>
+                            <td class="p-4 font-medium text-gray-800">جاری جام بانک ملت (شعبه ۱۳۵۱۶ شهید مدنی تبریز)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR75 0180 0000 0000 0501 0577 70</td>
+                            <td class="p-4 text-center text-gray-400">-</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">0501057770</td>
+                            <td class="p-4 font-medium text-gray-800">جاری فراگیر بانک تجارت (شعبه ۵۰۱۰ شهید مدنی تبریز)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR25 0530 0000 0050 0053 4466 03</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">6274 8813 9951 0261</td>
+                            <td class="p-4 copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">0500053446603</td>
+                            <td class="p-4 font-medium text-gray-800">جاری کارآفرین شعبه ۵۷۵ بازار تبریز</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="md:hidden space-y-4">
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3 border-b border-gray-200 pb-2">
+                        <i class="fas fa-university text-primary"></i>
+                        <h3 class="font-bold text-darkblue text-sm">جاری طلایی بانک سپه</h3>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره حساب:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">9800150003</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره کارت:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">5892 1070 4402 5446</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره شبا:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center text-xs copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR55 0150 0000 0000 9800 1500 03</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3 border-b border-gray-200 pb-2">
+                        <i class="fas fa-university text-primary"></i>
+                        <h3 class="font-bold text-darkblue text-sm">جاری سیبا بانک ملی</h3>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره حساب:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">0109180918004</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره کارت:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">6037 9918 9990 3461</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره شبا:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center text-xs copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR80 0170 0000 0010 9180 9180 04</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3 border-b border-gray-200 pb-2">
+                        <i class="fas fa-university text-primary"></i>
+                        <h3 class="font-bold text-darkblue text-sm">جاری سپهر بانک صادرات</h3>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره حساب:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">0103385531006</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره کارت:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">6037 6919 9019 2544</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره شبا:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center text-xs copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR55 0190 0000 0010 3385 5310 06</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3 border-b border-gray-200 pb-2">
+                        <i class="fas fa-university text-primary"></i>
+                        <h3 class="font-bold text-darkblue text-sm">جاری جام بانک ملت</h3>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره حساب:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">1703000836</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره کارت:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">6104 3379 1896 4832</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره شبا:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center text-xs copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR18 0120 0000 0000 1703 0008 36</span>
+                        </div>
+                    </div>
+                </div>
+                 <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3 border-b border-gray-200 pb-2">
+                        <i class="fas fa-university text-primary"></i>
+                        <h3 class="font-bold text-darkblue text-sm">جاری فراگیر بانک تجارت</h3>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره حساب:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">0501057770</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره شبا:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center text-xs copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR75 0180 0000 0000 0501 0577 70</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3 border-b border-gray-200 pb-2">
+                        <i class="fas fa-university text-primary"></i>
+                        <h3 class="font-bold text-darkblue text-sm">جاری کارآفرین</h3>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره حساب:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">0500053446603</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره کارت:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">6274 8813 9951 0261</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-gray-500">شماره شبا:</span>
+                            <span class="font-mono bg-white p-2 rounded border border-gray-200 text-center text-xs copy-hover" dir="ltr" onclick="copyText(this.innerText, this)">IR25 0530 0000 0050 0053 4466 03</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition duration-300 group flex flex-col items-center text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
+                <div class="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3 class="font-bold text-lg text-gray-800 mb-2 group-hover:text-green-700 transition">کمک آنلاین</h3>
+                <p class="text-xs text-gray-500 leading-relaxed mb-4">پرداخت آسان و آنی صدقه و هدایا از طریق درگاه پرداخت اینترنتی</p>
+                <button onclick="donateGeneral()" class="bg-green-600 text-white font-bold py-2 px-6 rounded-full w-full hover:bg-green-200 hover:text-green-700 transition shadow-sm">
+                    پرداخت آنلاین
+                </button>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition duration-300 group flex flex-col items-center text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
+                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                    <i class="fab fa-android"></i>
+                </div>
+                <h3 class="font-bold text-lg text-gray-800 mb-2 group-hover:text-blue-700 transition">اپلیکیشن نیکوکاری</h3>
+                <p class="text-xs text-gray-500 leading-relaxed mb-4">دسترسی سریع‌تر به خدمات خیریه با نصب اپلیکیشن اندروید</p>
+                <a href="contact.html" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full w-full hover:bg-blue-200 hover:text-blue-700 transition shadow-sm">
+                    دانلود مستقیم
+                </a>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition duration-300 group flex flex-col items-center text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-orange-500"></div>
+                <div class="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="font-bold text-lg text-gray-800 mb-2 group-hover:text-orange-700 transition">ارتباط با موسسه</h3>
+                <p class="text-xs text-gray-500 leading-relaxed mb-4">پاسخگویی به سوالات، پیشنهادات و انتقادات شما عزیزان</p>
+                <a href="contact.html" class="bg-orange-600 text-white font-bold py-2 px-6 rounded-full w-full hover:bg-orange-200 hover:text-orange-700 transition shadow-sm">
+                    تماس بگیرید
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <div id="custom-amount-modal" class="fixed inset-0 bg-black/60 z-[60] hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl transform scale-100 transition-all border border-teal-100">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">❤️</div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">مبلغ دلخواه</h3>
+                <p class="text-sm text-gray-500 mb-6 leading-relaxed">لطفاً مبلغ مورد نظر خود را جهت کمک به جهیزیه وارد نمایید.</p>
+                <div class="relative mb-6">
+                    <input type="number" id="custom-amount-input" class="w-full border-2 border-teal-200 rounded-2xl px-4 py-4 text-2xl font-black text-center text-teal-600 focus:border-teal-500 focus:bg-teal-50 outline-none transition placeholder-pink-200" placeholder="0">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-xs text-gray-400 font-bold pointer-events-none">تومان</span>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="closeModal()" class="flex-1 py-3 rounded-xl border-2 border-gray-200 text-gray-500 font-bold hover:bg-gray-50 transition text-sm">انصراف</button>
+                    <button onclick="submitCustomAmount()" class="flex-[2] py-3 rounded-xl bg-teal-500 text-white font-bold hover:bg-teal-600 shadow-lg shadow-teal-200 transition text-sm flex justify-center items-center gap-2">
+                        <span>ادامه پرداخت</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function donateGeneral() {
+            document.getElementById('custom-amount-modal').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('custom-amount-input').focus();
+            }, 100);
+        }
+        function closeModal() {
+            document.getElementById('custom-amount-modal').classList.add('hidden');
+        }
+        function submitCustomAmount() {
+            const amount = document.getElementById('custom-amount-input').value;
+            if (!amount || parseInt(amount) < 1000) {
+                alert('لطفاً مبلغ معتبری وارد کنید (حداقل ۱۰۰۰ تومان)');
+                return;
+            }
+            const genstr = "کمک انلاین";
+            const url = `https://admin-nobar.alibagherpour-dev.ir/register_pay.html?item_type=${genstr}&item_name=${genstr}&amount=${amount}`;
+            window.location.href = url;
+        }
+    </script>
+    
+</body>
+</html>
