@@ -15,10 +15,6 @@ The Nobar Charity Institute welcomes collaboration in the form of volunteering, 
 
 Financial and in-kind contributions are always appreciated and directly impact lives.
 
-## License
-
-This website and its content are proprietary to the Nobar Charity Institute. All rights reserved.
-
 ## Contact/Support
 
 - **Address**: Tabriz, Daneshsara Street, before Mansour Street, No. 162 (Postal Code: 5136846344)
@@ -26,5 +22,9 @@ This website and its content are proprietary to the Nobar Charity Institute. All
 - **Email**: info@nobar.ir
 - **Map**: [Navigate on Map](https://nshn.ir/7d_bAae3ICMBlK)
 - **Website**: https://nobar.alibagherpour-dev.ir
+
+## License
+
+This website and its content are proprietary to the Nobar Charity Institute. All rights reserved.
 
 We appreciate your support in making a difference!
