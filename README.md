@@ -1,3 +1,9 @@
+# NobarCharity
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://example.com/build)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://example.com/license)
+[![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)](https://example.com/releases)
+
 ## Visit Website
 
 Visit the [Page](http://nobar.alibagherpour-dev.ir/).
