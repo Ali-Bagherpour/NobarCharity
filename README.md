@@ -1,9 +1,14 @@
-## Roadmap
+## Visit Website
 
-- Expand digital donation channels and integrate more payment gateways.
-- Enhance mobile app features for real-time campaign updates and beneficiary stories.
-- Increase transparency reporting with detailed annual impact reports.
-- Grow volunteer network and community engagement programs.
+Visit the [Page](http://nobar.alibagherpour-dev.ir/).
+
+## Tech Stack
+
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+The technologies used in BaseVolume have been inferred from the site's structure and functionality, as no explicit details were provided on the website.
 
 ## Contributing
 
@@ -27,4 +32,24 @@ Financial and in-kind contributions are always appreciated and directly impact l
 
 This website and its content are proprietary to the Nobar Charity Institute. All rights reserved.
 
-We appreciate your support in making a difference!
+## 📂 Project Structure
+```text
+basevolume/
+├── index.html                  # Main Home Page
+├── script.js                   # Main Script File
+├── style.css                   # Main Css File
+├── pages/
+│   ├── genres.html         
+│   ├── about-us.html       
+│   ├── contact.html       
+│   ├── Iconic-gift-shop.html 
+│   ├── gallery.html
+│   ├── sadage.html
+│   └── ...
+├── images/
+│   ├── baner.jpg               # Default Hero Baner         
+│   ├── baste.jpg
+│   ├── checkup.jpg
+│   ├── ketab.jpg
+│   └── ...
+└── README.md                   # This file
